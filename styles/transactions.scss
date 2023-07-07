@@ -1,0 +1,326 @@
+.trans-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__left {
+        gap: 33px;
+        min-width: 234px;
+
+        .trans-currency {
+            width: 32px;
+            background-image: url('/public/icons/bitcoin.svg');
+            background-position: 50% 50%;
+            background-size: 12px 16.7px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__center {
+        gap: 24px;
+        align-items: end;
+        min-width: 300px;
+
+        .trans_waiting {
+            width: 14px;
+            height: 8.4px;
+            background-image: url("/public/icons/trueArrow.svg");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            scale: 2;
+        }
+
+        .trans-error {
+            background-image: url("/public/icons/falseArrow.svg");
+        }
+
+
+    }
+
+    &__right {
+        gap: 24px;
+        min-width: 183px;
+
+        button {
+            height: 30px;
+            width: 85px;
+            text-align: center;
+            border-radius: 5px;
+            background: #32395E;
+        }
+
+        .btn-error {
+            background: #F35050;
+        }
+
+        .btn-complete {
+            background: #00E8ACBF;
+        }
+    }
+}
+
+.trans-title {
+
+    h2 {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .buttons {
+        gap: 30px;
+
+        button {
+            border-radius: 25px;
+            background: linear-gradient(292deg, #3887FE 0%, #3BA0FF 49.72%, #5FB2FF 100%);
+            box-shadow: 0px 2px 4px 0px rgba(85, 35, 221, 0.40);
+            height: 32px;
+            padding: 0 12px;
+
+            font-weight: 700;
+            transition: .3s ease;
+
+            &:hover {
+                box-shadow: 0px 2px 20px 5px rgba(85, 35, 221, 0.80);
+                filter: brightness(1.1);
+            }
+        }
+    }
+
+    margin-bottom: 26px;
+}
+
+.trans-total {
+    color: #FFF;
+    font-family: Open Sans;
+    font-weight: 700;
+    margin-bottom: 13px;
+
+    p {
+        opacity: .5;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .trans-btns {
+        gap: 24px;
+
+        button {
+            opacity: .5;
+            padding: 5px;
+            border-radius: 5px;
+            transition: .3s ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .trans-btn_active {
+        background: #32395E;
+        opacity: 1 !important;
+    }
+}
+
+.trans-wrapper {
+    position: relative;
+    max-height: 450px;
+    overflow: hidden;
+
+    .trans-after {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 132px;
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(15, 11, 56, 0.00) 8.84%, #0F0B38 100%);
+        transition: .5s ease;
+
+        &:hover {
+
+            &::before {
+                width: 20px;
+                height: 20px;
+                background-size: 15px 11px;
+            }
+        }
+
+        &::before {
+            content: '';
+            cursor: pointer;
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            translate: -50% 0%;
+            width: 20px;
+            height: 20px;
+            background-image: url("/public/icons/scrollArrow.svg");
+            background-repeat: no-repeat;
+            background-size: 9px 5px;
+            background-position: center 90%;
+            z-index: 1;
+            transition: .3s ease;
+        }
+    }
+
+}
+
+.trans-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 400px;
+    gap: 16px;
+    overflow-y: scroll;
+    padding-bottom: 132px;
+    transition: .5s ease;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .trans-item {
+        border-radius: 10px;
+        width: 100%;
+        padding: 21px 24px;
+        background: rgba(46, 53, 88, 0.30000001192092896);
+        transition: .3s ease;
+        cursor: pointer;
+
+        .amount {
+            font-weight: 700;
+        }
+
+        &:hover {
+            background: rgba(46, 53, 88, 1);
+        }
+    }
+
+}
+
+.trans-modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #00000000;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    display: none;
+    opacity: 0;
+    transition: .5s linear;
+}
+
+.trans-modal {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: -30%;
+    translate: -50% -50%;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #1E1156 70%, rgba(28, 35, 64, 0.00) 100%);
+    box-shadow: 0px 25px 25px 0px rgba(0, 3, 32, 0.50);
+    padding: 82px;
+    transition: 1s ease;
+
+    h2 {
+        text-align: center;
+        color: #FFF;
+        text-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
+        font-size: 36px;
+        font-family: Roboto;
+        font-weight: 500;
+        margin-bottom: 62px;
+    }
+
+    form {
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+
+        
+        select,
+        input {
+            width: 315px;
+            padding: 21px 16px 21px 67px;
+            border-radius: 8px;
+            background: #32395E;
+            color: #616A8B;
+            font-size: 16px;
+            font-family: Roboto;
+            transition: .3s ease;
+            position: relative;
+            background-repeat: no-repeat;
+
+            &:focus {
+                box-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
+            }
+
+
+        }
+
+        .inp-sum {
+            background-image: url("/public/icons/ellipse.svg"), url("/public/icons/cash.svg");
+            background-position: 18px center, 27px center;
+            background-size: 32px, 14px;
+        }
+
+        .inp-currency {
+            background-image: url("/public/icons/ellipse.svg"), url("/public/icons/bitcoin.svg");
+            background-position: 18px center, 27px center;
+            background-size: 32px, 14px;
+        }
+
+        button {
+            padding: 12px 22px;
+            border-radius: 8px;
+            background: linear-gradient(51deg, #2F3453 0%, #242845 97.79%);
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+            color: #949EC0;
+            font-size: 16px;
+            font-family: Roboto;
+            font-weight: 700;
+            transition: .3s ease;
+            position: relative;
+            overflow: hidden;
+
+            span {
+                position: relative;
+                z-index: 2;
+            }
+
+            .btn-after {
+                position: absolute;
+                top: 0%;
+                left: -101%;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                background: linear-gradient(292deg, #3887FE 0%, #3BA0FF 49.72%, #5FB2FF 100%);
+                box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+                color: #FFF;
+                font-size: 16px;
+                font-weight: 700;
+                transition: .3s ease;
+            }
+
+            &:hover {
+                color: #fff;
+
+                .btn-after {
+                    left: 0%;
+                }
+            }
+
+        }
+    }
+
+}

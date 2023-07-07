@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.scss">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="card-after"></div>
+            <div class="card-before"></div>
+            <center>
+                <h1>Welcome!</h1>
+            </center>
+            <div class="front">
+                <form name="signup" class="sign-up">
+                    <input type="text" name="name" placeholder="Name" class="input-up">
+                    <input type="text" name="surname" placeholder="Surname" class="input-up">
+                    <input type="email" name="email" placeholder="E-mail" class="input-up inp-email">
+                    <input type="password" name="password" placeholder="Password" class="pass input-up"> <br>
+                    <img src="../public/icons/unview.png" class="unview">
+                    <img src="../public/icons/view.png" class="view">
+                    <button type="submit">submit</button>
+                </form>
+
+            </div>
+            <div class="back">
+                <form name="signin">
+                    <input type="email" name="email" placeholder="E-mail" class="E-mail">
+                    <input type="password" name="password" placeholder="Password" class="pass-2"> <br>
+                    <img src="../public/icons/unview.png" class="unview unview-2">
+                    <img src="../public/icons/view.png" class="view view-2">
+                    <button type="submit">submit</button>
+              <!-- <embed src="../public/images/just-do-it.mp3" class="embed"> -->
+                </form>
+
+            </div>
+            <center>
+                <button data-front class="front-btn able-btn" disabled="true">SIGN UP</button>
+                <button data-back class="back-btn">SIGN IN</button>
+            </center>
+        </div>
+
+    </div>
+
+    <div class="valuet-block">
+        <div class="valuet-after"></div>
+        <h1 id="valuet-h1">VALUET</h1>
+        <hr>
+        <h3 id="valuet-h3">Your currency dashboard</h3>
+    </div>
+
+    <div class="error-block">
+        <p class="error-p"></p>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

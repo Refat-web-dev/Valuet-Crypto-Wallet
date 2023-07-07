@@ -1,0 +1,145 @@
+button:active {
+    scale: .9;
+  }
+  
+  .exchange-block {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .exchange-block h3 {
+    color: #616A8B;
+  }
+  
+  .from-block {
+    width: 530px;
+    height: 226px;
+    background: linear-gradient(175.32deg, rgba(28, 35, 64, 0) -5.79%, #1C0F54 114.59%);
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 35px;
+    position: relative;
+  }
+  
+  .from-block select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 101px;
+    height: 33px;
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  
+  .from-value {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+  
+  .from-input {
+    border: none;
+    border-bottom: 2px solid #1288E8;
+    background-color: #32395E;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 25px;
+    left: 35px;
+    width: 457px;
+    height: 46px;
+    color: white;
+    padding: 20px;
+    outline: none;
+  }
+  
+  .to-block {
+    width: 530px;
+    height: 226px;
+    background: linear-gradient(175.32deg, rgba(28, 35, 64, 0) -5.79%, #1C0F54 114.59%);
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 35px;
+    position: relative;
+  }
+  
+  .to-block select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 101px;
+    height: 33px;
+    font-size: 19px;
+    margin-top: 30px;
+  }
+  
+  .grid-in {
+    position: absolute;
+    top: 43px;
+    right: 57px;
+  }
+  
+  .total-block {
+    width: 1084px;
+    height: 113px;
+    background: linear-gradient(175.32deg, rgba(28, 35, 64, 0) -5.79%, #1C0F54 114.59%);
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .total-block h2 {
+    font-size: large;
+  }
+  
+  .total {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-exchange {
+    background-color: blue;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .btn-block {
+    display: flex;
+    margin-left: 490px;
+  }
+  
+  .btn-block button {
+    margin-top: 30px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .btn-block button:hover {
+    background-color: white;
+    color: blue;
+    box-shadow: 0 0 10px 10px blue;
+  }
+  
+  @media (max-width: 1362px) {
+    .total-block {
+        width: 530px;
+        font-size: 10px;
+    }
+    
+    .total-block h2 {
+        font-size: 14px;
+    }
+  
+    
+  .btn-block {
+    display: flex;
+    margin-left: 215px;
+  }
+  }

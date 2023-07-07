@@ -1,0 +1,21 @@
+{
+  "name": "valuet-wepro-team",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"json-server -p 5050 -w db.json\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "chart": "^0.1.2",
+    "chart.js": "^4.3.0",
+    "concurrently": "^8.2.0",
+    "json-server": "^0.17.3",
+    "sass": "^1.63.6",
+    "uuid": "^9.0.0",
+    "vite": "^4.3.9"
+  }
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.scss" />
+    <link rel="stylesheet" href="/styles/overview.scss" />
+    <link rel="stylesheet" href="/styles/transactions.scss" />
+    <link rel="stylesheet" href="/styles/market.scss" />
+    <link rel="stylesheet" href="./styles/wallets.scss" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/exchange.scss">
+    <script src="/modules/guard.js"></script>
+    <title>Valuet</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="layouts">
+            <header>
+                <div class="container">
+                    <div class="header">
+                        <div class="header__left">
+                            <input type="text" id="search" placeholder="Search For Market News.." />
+                        </div>
+                        <div class="header__right">
+                            <button class="mail btn_after"></button>
+                            <button class="bell btn_after"></button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <aside>
+                <a href="/index.html">
+                    <h2 class="logo">VALUET</h2>
+                </a>
+                <div class="actions">
+                    <nav class="links">
+                        <p class="active_link" id="overview">Overview</p>
+                        <p id="wallets">Wallets</p>
+                        <p id="transactions">Transactions</p>
+                        <p id="exchange">Exchange</p>
+                        <p id="market">Market</p>
+                    </nav>
+                    <div class="aside_out">
+                        <p id="ellipse">Mike Jakson</p>
+                        <p id="out"> Log Out</p>
+                    </div>
+                </div>
+            </aside>
+            <main>
+                <div class="container" id="cont-overview">
+                    <div class="dashboard">
+                        <!-- Top Container -->
+                        <div class="top__container dashboard-container">
+                            <div class="top__container-left">
+                                <h3>Overview</h3>
+                                <span>25 October, Sundey</span>
+                            </div>
+                            <button class="top__container-right-btn">Add Widget</button>
+                        </div>
+
+                        <!-- Middle Container -->
+                        <div class="middle__container dashboard-container">
+                            <!-- Balance -->
+                            <div class="middle-container__balance middle-row">
+                                <h4>Balance</h4>
+                                <div class="circle">
+                                    <div class="circle-title">
+                                        <p>Balance</p>
+                                        <span></span>
+                                    </div>
+                                    <canvas id="middle-container__balance-chart"></canvas>
+                                </div>
+                                <div class="middle-container__balance-wallet">
+                                    <div></div>
+                                    <p>Ethereum</p>
+                                    <span>18%</span>
+                                </div>
+                                <div class="middle-container__balance-wallet">
+                                    <div></div>
+                                    <p>Bitcoin</p>
+                                    <span>64%</span>
+                                </div>
+                                <div class="middle-container__balance-wallet">
+                                    <div></div>
+                                    <p>Dash</p>
+                                    <span>18%</span>
+                                </div>
+                            </div>
+                            <!-- Spending -->
+                            <div class="middle-container__spend middle-row">
+                                <div class="middle-container__spend-row">
+                                    <p>Spending</p>
+                                    <select name="select" id="select">
+                                        <option value="Januay">Januay</option>
+                                    </select>
+                                </div>
+                                <span class="middle-container__spend-total">$ 5,743.35</span>
+                                <p class="middle-container__spend-text">total spending</p>
+                                <img class="middle-container__spend-img" src="/public/images/spend.png" alt="" />
+                            </div>
+                            <!-- Wallets -->
+                            <div class="middle-container__wallets middle-row">
+                            </div>
+                        </div>
+                        <!-- Bottom Container -->
+                        <div class="bottom__container dashboard-container">
+                            <div class="bottom-row"></div>
+                            <div class="bottom-row bottom-news">
+                                <h3>Recent News</h3>
+                                <table class="bottom-news__table">
+                                    <tr>
+                                        <td class="bottom-news__time">19 hours ago</td>
+                                        <td class="bottom-news__title">
+                                            SEC Fails to Show Court Blockvest Tokens Are Securities
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bottom-news__time">23 hours ago</td>
+                                        <td class="bottom-news__title">
+                                            Report: Bitcoin Mining Doesn’t Fuel Climate Change, It Benefits the Global
+                                            Economy
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bottom-news__time">11.22, 15:27</td>
+                                        <td class="bottom-news__title">
+                                            A Look at the Multi-Currency Encrypted Messaging App ‘Chat.Chat’
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bottom-news__time">11.21, 11:43</td>
+                                        <td class="bottom-news__title">
+                                            Four Ways to Commemorate Bitcoin’s 10th Anniversary
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overview Modal -->
+                    <div class="overview-modal">
+                        <h2>Add Wallet</h2>
+                        <form name="addWidget">
+                            <input type="text" name="crypto" placeholder="Bitcoin" />
+                            <input type="number" name="walletContentPriceCrypto" placeholder="100" />
+                            <button class="add-widget">Add Widget</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="container" id="cont-wallets">
+                    <div class="wallets">
+                        <div class="wallets__container sec-container">
+                            <h5 class="wallets__header wallets__title">Wallets</h5>
+                            <div class="wallets__top-box">
+                                <div class="wallets__chard wl-chard">
+                                    <div class="wl-chard__circle">
+                                        <div class="wl-chard__effect effect-chart">
+                                            <span>TOTAL</span>
+                                            <p>$67 421</p>
+                                        </div>
+                                        <canvas id="wl-chard__circle-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="wallets__top-box-cards">
+                                </div>
+                            </div>
+                            <div class="wallets__down-box dw-box">
+                                <div class="dw-box__left">
+                                    <img src="./public/images/face.png" alt="" />
+                                </div>
+                                <div class="dw-box__right right-block">
+                                    <div class="right-block__title">RECENT TRANSACTIONS</div>
+                                    <hr style="background-color: #2d317a" />
+                                    <div class="right-block__box">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="cont-transactions">
+                    <div class="trans-title trans-row">
+                        <h2>Transactions</h2>
+                        <div class="buttons trans-row">
+                            <button id="addTransaction">Add Transaction</button>
+                            <button id="hystory">Export History</button>
+                        </div>
+                    </div>
+                    <div class="trans-wrapper">
+                        <div class="trans-total trans-row">
+                            <p>Total 1,543</p>
+                            <div class="trans-btns trans-row">
+                                <button data-select="All" id="transAll" class="trans-btn_active">All</button>
+                                <button data-select="Waiting">Waiting</button>
+                                <button data-select="true">Succes</button>
+                                <button data-select="false">Error</button>
+                            </div>
+                        </div>
+                        <div class="trans-column">
+
+                        </div>
+                        <div class="trans-after"></div>
+                    </div>
+                </div>
+                <div class="container" id="cont-exchange">
+                    <h2>Exchange</h2>
+
+                    <div class="exchange-block">
+                        <div class="from-container">
+                            <h3>From</h3>
+
+                            <div class="from-block">
+                                <select>
+                                    <option>BitCoin</option>
+                                </select>
+                                <img src="./public/icons/bitcoin-exchange.png" class="from-value" />
+
+                                <input type="text" class="from-input" />
+                            </div>
+                        </div>
+
+                        <div class="to-container">
+                            <h3>To</h3>
+
+                            <div class="to-block">
+                                <select>
+                                    <option>GridCoin</option>
+                                </select>
+                                <img src="./public/icons/grid-back.png" class="from-value" />
+                                <img src="./public/icons/grid-front.png" class="grid-in" />
+
+                                <input type="text" class="from-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exchange-block">
+                        <div class="total-block">
+                            <div class="total">
+                                <h2>0.45234 BTC</h2>
+                                <img src="./public/icons/bitcoin.svg" height="59px" />
+                            </div>
+                            <img src="./public/icons/Arrow.svg" width="200px" height="40px" />
+                            <div class="total">
+                                <img src="./public/images/Bitcoin-big.png" height="59px" />
+                                <h2>1.45534 gRC</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-block">
+                        <button class="btn-exchange">Exchange</button>
+                    </div>
+                </div>
+                <div class="container" id="cont-market">
+                    <div class="market-title">
+                        <h2>Market</h2>
+                    </div>
+                    <div class="market-wrapper">
+                        <div class="market_item">
+                            <div class="trans-row">
+                                <img src="/public/icons/bitcoin.svg" width="70px" height="70px" alt="img">
+                                <p class="market_title">name</p>
+                            </div>
+                            <p class="market_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minus
+                                eaque, ratione, doloribus, ab eius quam ipsa eos ex excepturi laudantium culpa ducimus.
+                                Fuga nemo reiciendis doloremque aut enim sunt!</p>
+                            <div class="canv_wrap">
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="trans-modal">
+            <h2>Add A New Transcation</h2>
+            <form name="addTransaction" class="trans-row">
+                <select name="cards" id="cards"></select>
+                <input list="currency-list" class="inp-currency" type="text" name="currency" placeholder="Currency" />
+                <datalist id="currency-list"></datalist>
+                <input class="inp-sum" type="number" name="sum" placeholder="Sum" />
+                <button type="submit">
+                    <span>ADD</span>
+                    <div class="btn-after"></div>
+                </button>
+            </form>
+        </div>
+
+        <div class="trans-modal_bg"></div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
