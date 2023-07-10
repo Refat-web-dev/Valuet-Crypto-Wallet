@@ -98,7 +98,7 @@
                                         <option value="Januay">Januay</option>
                                     </select>
                                 </div>
-                                <span class="middle-container__spend-total">$ 5,743.35</span>
+                                <span class="middle-container__spend-total">$ 0</span>
                                 <p class="middle-container__spend-text">total spending</p>
                                 <img class="middle-container__spend-img" src="/public/images/spend.png" alt="" />
                             </div>
@@ -148,10 +148,16 @@
                         <form name="addWidget">
                             <input type="text" name="crypto" placeholder="Bitcoin" />
                             <input type="number" name="walletContentPriceCrypto" placeholder="100" />
-                            <button class="add-widget">Add Widget</button>
+                            <button type="submit">
+                                <span>Add Widget</span>
+                                <div class="btn-after"></div>
+                            </button>
+                            <!-- <button class="add-widget">Add Widget</button> -->
                         </form>
                     </div>
+                    <div class="overview-bg"></div>
                 </div>
+
 
                 <div class="container" id="cont-wallets">
                     <div class="wallets">
@@ -167,8 +173,7 @@
                                         <canvas id="wl-chard__circle-chart"></canvas>
                                     </div>
                                 </div>
-                                <div class="wallets__top-box-cards">
-                                </div>
+                                <div class="wallets__top-box-cards"></div>
                             </div>
                             <div class="wallets__down-box dw-box">
                                 <div class="dw-box__left">
@@ -177,13 +182,13 @@
                                 <div class="dw-box__right right-block">
                                     <div class="right-block__title">RECENT TRANSACTIONS</div>
                                     <hr style="background-color: #2d317a" />
-                                    <div class="right-block__box">
-                                    </div>
+                                    <div class="right-block__box"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="container" id="cont-transactions">
                     <div class="trans-title trans-row">
                         <h2>Transactions</h2>
@@ -208,6 +213,7 @@
                         <div class="trans-after"></div>
                     </div>
                 </div>
+
                 <div class="container" id="cont-exchange">
                     <h2>Exchange</h2>
 
@@ -216,12 +222,11 @@
                             <h3>From</h3>
 
                             <div class="from-block">
-                                <select>
-                                    <option>BitCoin</option>
-                                </select>
+                                <input type="text" list="currency-exchange" class="currency-exchange" placeholder="Bitcoin">
+                                <datalist id="currency-exchange"></datalist>
                                 <img src="./public/icons/bitcoin-exchange.png" class="from-value" />
 
-                                <input type="text" class="from-input" />
+                                <input type="number" class="from-input from-currency" />
                             </div>
                         </div>
 
@@ -235,7 +240,7 @@
                                 <img src="./public/icons/grid-back.png" class="from-value" />
                                 <img src="./public/icons/grid-front.png" class="grid-in" />
 
-                                <input type="text" class="from-input" />
+                                <input type="text" class="from-input to-input" readonly />
                             </div>
                         </div>
                     </div>
@@ -248,7 +253,7 @@
                             </div>
                             <img src="./public/icons/Arrow.svg" width="200px" height="40px" />
                             <div class="total">
-                                <img src="./public/images/Bitcoin-big.png" height="59px" />
+                                <img src="./public/icons/gridcoin.svg" height="59px" />
                                 <h2>1.45534 gRC</h2>
                             </div>
                         </div>

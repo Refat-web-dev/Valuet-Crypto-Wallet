@@ -114,16 +114,16 @@ export function reloadCard(arr, place) {
   let total = 0;
   place.innerHTML = ' ';
   for (let item of maxBalanxe(arr)) {
-    place.innerHTML += `<div class="cards-slide"><div class="item"><div class="item__title">${item.name}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.balance + " " + item.currens}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>`;
-    total += (+item.balance)
+    place.innerHTML += `<div class="cards-slide"><div class="item"><div class="item__title">${item.crypto}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.walletContentPriceCrypto + " " + item.cryptoCurrency}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>`;
+    total += (+item.walletContentPriceCrypto)
   };
 
   function maxBalanxe(array) {
-    return [...array].sort((a, b) => +b.balance - +a.balance);
+    return [...array].sort((a, b) => +b.walletContentPriceCrypto - +a.walletContentPriceCrypto);
   };
   for (let q of maxBalanxe(arr).slice(0, 3)) {
-    data.datasets[0].data.push(q.balance);
-    data.labels.push(q.name);
+    data.datasets[0].data.push(q.walletContentPriceCrypto);
+    data.labels.push(q.crypto);
     data.datasets[0].backgroundColor.push(getRandomColor());
   };
   return [data, total];

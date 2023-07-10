@@ -47,37 +47,13 @@ tabs.forEach((btn) => {
     }
 })
 
-let search = document.querySelector("#search")
-
-search.onkeyup = () => {
-
-    let val = search.value.toLowerCase().trim()
-    console.log(val);
-
-    axios.get(`https://api.polygon.io/v2/reference/news?apiKey=pGAPM3QPihN6hSnNCt2MoprARr902Yb3`, {
-        // headers: {
-        //   Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
-        // }
-    }).then(res => {
-
-        let filtered = res.data.results.filter(news => {
-            let keyword = news.keywords
-
-            if (keyword.includes(val)) {
-                return news
-            }
-            
-        })
-        marketNews(filtered, market_wrapper)
-    })
-
-}
-
 // Overview
 let addWidget = document.querySelector(".top__container-right-btn");
 let widgetModal = document.querySelector(".overview-modal");
+let widgetModalBg = document.querySelector(".overview-bg");
 let balanceChart = document.querySelector("#middle-container__balance-chart");
 let total = document.querySelector(".circle-title span");
+let totalSpendMoney = document.querySelector(".middle-container__spend-total");
 let widgetForm = document.forms.addWidget
 
 request('/overviews', 'get').then(res => {
@@ -100,7 +76,11 @@ request('/overviews', 'get').then(res => {
 
     createChart(crypto, totalBalance)
 
-    wallets(res.splice(res.length - 4, res.length))
+    if (res.length <= 4) {
+        wallets(res.splice(0, 4))
+    } else {
+        wallets(res.splice(res.length - 4, res.length))
+    }
 })
 
 const createChart = (crypto, totalBalance) => {
@@ -153,12 +133,34 @@ widgetForm.onsubmit = (e) => {
     location.assign('/')
 }
 
+
 addWidget.onclick = () => {
-    widgetModal.style.display = 'flex'
+    widgetModalBg.style.display = 'block'
+    setTimeout(() => {
+        widgetModalBg.style.opacity = "1";
+        widgetModal.style.left = "37%";
+    }, 500);
 };
 
-// =====================
+widgetModalBg.onclick = () => {
+    widgetModalBg.style.opacity = "0";
+    widgetModal.style.left = "-30%";
+    setTimeout(() => {
+        widgetModalBg.style.display = "none";
+    }, 500);
+};
 
+request('/transactions', 'get').then(res => {
+    let totalSpend = 0
+    for (const i of res) {
+        totalSpend += +i.sum
+    }
+
+    totalSpendMoney.innerHTML = '$ ' + totalSpend.toLocaleString()
+    console.log(totalSpend);
+})
+
+// =====================
 
 let trans_column = document.querySelector(".trans-column");
 let trans_smoke = document.querySelector(".trans-wrapper .trans-after");
@@ -379,12 +381,47 @@ currency_inp.oninput = () => {
 
 // market
 let market_wrapper = document.querySelector(".market-wrapper")
+let localedNews = JSON.parse(localStorage.getItem("news"))
+let search = document.querySelector("#search")
 
-axios.get(`https://api.polygon.io/v2/reference/news?apiKey=iUHGKotbxMhMnt1C6YmjK0PofFRKpvIN`, {
-    // headers: {
-    //   Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
-    // }
-}).then(res => marketNews(res.data.results, market_wrapper))
+if (!localedNews) {
+
+    axios.get(`https://api.polygon.io/v2/reference/news?apiKey=wMQqf01FqjnCFZ9vzUKvfTgnsGZorkvk`, {
+        // headers: {
+        //   Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+        // }
+
+    }).then(res => {
+
+        if (res.status === 200 || res.status === 201) {
+            localStorage.setItem("news", JSON.stringify(res.data.results))
+            marketNews(res.data.results, market_wrapper)
+        }
+
+    })
+} else {
+    marketNews(localedNews, market_wrapper)
+}
+
+
+search.onkeyup = () => {
+
+    let val = search.value.toLowerCase().trim()
+    console.log(val);
+
+
+    let filtered = localedNews.filter(news => {
+        let keyword = news.publisher.name.toLowerCase().trim()
+        console.log(keyword);
+        if (keyword.includes(val)) {
+            return news
+        }
+
+    })
+    marketNews(filtered, market_wrapper)
+
+
+}
 
 // request("/transactions", "get")
 //   .then(res => marketNews(res, market_wrapper))
@@ -394,7 +431,7 @@ let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
 const ctx = document.getElementById('wl-chard__circle-chart');
 let total_p = document.querySelector('.effect-chart p');
-request("/cards", "get")
+request("/overviews", "get")
     .then(res => {
         let [data, total] = reloadCard(res, box);
         new Chart(ctx, {
@@ -445,4 +482,105 @@ items_box.onscroll = () => {
 effect.onclick = () => {
 
     items_box.scrollTop = items_box.scrollHeight;
+}
+
+if (!localedSymbols) {
+    axios
+        .get(
+            import.meta.env.VITE_CURRENCY_API, {
+            headers: {
+                apiKey: import.meta.env.VITE_API_KEY,
+            },
+        })
+        .then((res) => {
+            if (res.status === 200 || res.status === 201) {
+                localStorage.setItem("symbols", JSON.stringify(res.data.symbols));
+                setOption(res.data.symbols);
+            }
+        });
+}
+// Exchange 
+
+let currencyExchange = document.querySelector('#currency-exchange')
+
+if (localedSymbols) {
+    setOptionExchange(localedSymbols)
+} else {
+    axios
+        .get(
+            import.meta.env.VITE_CURRENCY_API, {
+            headers: {
+                apiKey: import.meta.env.VITE_API_KEY,
+            },
+        })
+        .then((res) => {
+            if (res.status === 200 || res.status === 201) {
+                localStorage.setItem("symbols", JSON.stringify(res.data.symbols));
+                setOption(res.data.symbols);
+            }
+        })
+}
+
+function setOptionExchange(data) {
+    for (let key in data) {
+        let opt = new Option(data[key], key)
+
+        currencyExchange.append(opt)
+    }
+}
+
+const apiKey = "332555db6c7941f1a4f7a5c15e00f1ba";
+const amountInDollars = 100;
+let toInput = document.querySelector('.to-input')
+let fromInput = document.querySelector('.from-currency')
+
+
+
+// Функция для получения курса обмена валют
+function getExchangeRate(baseCurrency, targetCurrency) {
+    const rates = JSON.parse(localStorage.getItem('exchangeRates'));
+
+    if (rates && rates[baseCurrency] && rates[baseCurrency][targetCurrency]) {
+        return Promise.resolve(rates[baseCurrency][targetCurrency]);
+    } else {
+        const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}&base=${baseCurrency}`;
+
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const rate = data.rates[targetCurrency];
+
+                const updatedRates = {
+                    ...(rates || {}),
+                    [baseCurrency]: {
+                        ...(rates && rates[baseCurrency] || {}),
+                        [targetCurrency]: rate
+                    }
+                };
+
+                localStorage.setItem('exchangeRates', JSON.stringify(updatedRates));
+
+                return rate;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+}
+
+// Функция для конвертации валют
+function convertCurrency(amount, baseCurrency, targetCurrency) {
+    return getExchangeRate(baseCurrency, targetCurrency)
+        .then(rate => {
+            const convertedAmount = amount * rate;
+            return convertedAmount;
+        });
+}
+
+fromInput.onkeyup = () => {
+    console.log(fromInput.value);
+    convertCurrency(+fromInput.value, 'USD', 'RUB')
+        .then(convertedAmount => {
+            toInput.value = (+convertedAmount).toLocaleString("uz-UZ");
+        });
 }

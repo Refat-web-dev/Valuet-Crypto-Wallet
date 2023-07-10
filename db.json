@@ -55,6 +55,20 @@
       "surname": "Кузнецов",
       "email": "refabatya@gmail.com",
       "password": "3214qwerTT"
+    },
+    {
+      "id": 9,
+      "name": "Refat",
+      "surname": "Islyamov",
+      "email": "refabatya@gmail.co",
+      "password": "3214qwerT"
+    },
+    {
+      "id": 10,
+      "name": "Refat",
+      "surname": "Islyamov",
+      "email": "refabatya@gmail.co",
+      "password": "3214qwerT"
     }
   ],
   "overviews": [
@@ -75,7 +89,7 @@
           "cryptoCurrency": "1 BTC = $6 542, 35"
         }
       ],
-      "crypto": "Bitcoin",
+      "crypto": "Mastercard",
       "walletContentPriceCrypto": "100",
       "id": 1
     },
@@ -117,51 +131,9 @@
           "cryptoCurrency": "1 BTC = $6 542, 35"
         }
       ],
-      "crypto": "",
-      "walletContentPriceCrypto": "",
-      "id": 3
-    },
-    {
-      "cryptoCurrency": "BTC",
-      "walletContentPriceUSD": "30000000",
-      "currencyBox": [
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        },
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        },
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        }
-      ],
       "crypto": "USD",
-      "walletContentPriceCrypto": "20000",
+      "walletContentPriceCrypto": "250",
       "id": 4
-    },
-    {
-      "cryptoCurrency": "BTC",
-      "walletContentPriceUSD": "30000000",
-      "currencyBox": [
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        },
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        },
-        {
-          "totalCurrency": "$1 200 = 0,074 BTC",
-          "cryptoCurrency": "1 BTC = $6 542, 35"
-        }
-      ],
-      "crypto": "",
-      "walletContentPriceCrypto": "",
-      "id": 5
     },
     {
       "cryptoCurrency": "BTC",
@@ -183,6 +155,48 @@
       "crypto": "Bitcoin",
       "walletContentPriceCrypto": "200",
       "id": 6
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Uzbekistan",
+      "walletContentPriceCrypto": "251",
+      "id": 7
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Uzbekistan",
+      "walletContentPriceCrypto": "123",
+      "id": 8
     }
   ],
   "transactions": [

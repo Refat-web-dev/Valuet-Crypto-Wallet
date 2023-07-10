@@ -3,6 +3,7 @@
    font-weight: 300;
    color: $color;
 }
+
 @mixin RegularFont($color) {
    font-size: 24px;
    font-weight: 400;
@@ -26,6 +27,7 @@
    font-weight: 800;
    color: $color;
 }
+
 $colorOne: #1288e8;
 $colorTwo: #616a8b;
 $white: #ffffff;
@@ -33,26 +35,33 @@ $blueLight: #5fb2ff;
 $blueBlack: #3887fe;
 $oranLight: #f7bc7a;
 $oranBlack: #ed6480;
+
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
    font-family: "Open Sans" !important;
 }
+
 .wrapper {
    min-height: 100%;
    overflow: hidden;
+   ::-webkit-scrollbar{
+      display: none;
+   }
 }
 
 .sec-container {
    max-width: 1484px;
    margin: 0 auto;
 }
+
 .wallets {
    p {
       width: auto !important;
       padding: 0 !important;
    }
+
    &__container {
       display: flex;
       justify-content: flex-start;
@@ -87,14 +96,17 @@ $oranBlack: #ed6480;
       background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0f0b38 93.37%);
       // padding: 21px;
    }
+
    &__top-box-cards {
       display: flex;
       gap: 24px;
       overflow-y: auto;
       align-items: center;
+
       &::-webkit-scrollbar {
          display: none;
       }
+
       .cards-slide {
          width: 100%;
          position: relative;
@@ -114,6 +126,7 @@ $oranBlack: #ed6480;
             transform: translateX(-50%);
             transition: 0.4s ease;
          }
+
          .item {
             background: linear-gradient(237.07deg, rgba(96, 67, 146, 0.5) -8.06%, rgba(15, 11, 56, 0.5) 96.63%);
             padding: 16px;
@@ -127,6 +140,7 @@ $oranBlack: #ed6480;
                top: 16px;
                left: 16px;
             }
+
             &__statistic-box {
                display: flex;
                justify-content: flex-end;
@@ -147,6 +161,7 @@ $oranBlack: #ed6480;
                @include SemiboldFont($white);
                font-size: 16px;
             }
+
             &__proc {
                @include SemiboldFont($colorTwo);
                font-size: 12px;
@@ -159,6 +174,7 @@ $oranBlack: #ed6480;
          }
       }
    }
+
    &__down-box {
       display: flex;
       justify-content: space-between;
@@ -166,41 +182,47 @@ $oranBlack: #ed6480;
       gap: 24px;
    }
 }
+
 .effect-chart {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    gap: 8px;
-   span{
+
+   span {
       @include RegularFont($colorTwo);
-      font-size:16px;
+      font-size: 14px;
    }
-   p{
+
+   p {
       @include BoldFont($white);
-      font-size: 18px;
+      font-size: 16px;
    }
 }
 
 .wl-chard {
    &__effect {
       position: absolute;
-      top: 45%;
-      left: 50%;
+      top: 33%;
+      left: 28%;
       translate: -50% 0;
    }
+
    &__nav {
       ul {
          li {
             margin-top: 8px;
             position: relative;
             list-style: none;
+
             .li-box {
                display: flex;
                justify-content: space-between;
                align-items: center;
                width: 98px;
             }
+
             p {
                @include RegularFont($white);
                font-size: 12px;
@@ -211,11 +233,12 @@ $oranBlack: #ed6480;
                font-size: 12px;
             }
          }
+
          li:before {
             content: "";
             position: absolute;
             left: -20px;
-            top: 4px;
+            top: 0px;
             display: block;
             background-image: url(../public/icons/li-icon-one.svg);
             width: 19px;
@@ -223,8 +246,27 @@ $oranBlack: #ed6480;
          }
       }
    }
-   &__circle {position: relative;
+
+   &__circle {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 8px 30px;
+      .effect-chart{
+         position: absolute;
+         left: 50%;
+         top: 53%;
+      }
    }
+}
+
+#wl-chard__circle-chart {
+   // min-width: 255px;
+   // min-height: 255px;
+   // max-width: 255px;
+   // max-height: 255px;
 }
 
 .dw-box {
@@ -233,11 +275,13 @@ $oranBlack: #ed6480;
       width: 100%;
       padding: 24px;
       background: linear-gradient(176.95deg, rgba(27, 18, 78, 0.2) -32.8%, #0f0b38 88.83%);
+
       img {
          width: 100%;
          height: 100%;
       }
    }
+
    &__right {
       position: relative;
 
@@ -248,24 +292,29 @@ $oranBlack: #ed6480;
       background: linear-gradient(176.95deg, rgba(27, 18, 78, 0.2) -32.8%, #0f0b38 88.83%);
    }
 }
+
 .right-block {
    &__title {
       @include SemiboldFont($white);
       font-size: 14px;
    }
+
    hr {
       margin: 14px 0px 14px 0px;
       border: 1px solid #2d317a;
    }
+
    &__box {
       display: flex;
       gap: 16px;
       flex-direction: column;
       max-height: 240px;
       overflow: auto;
+
       &::-webkit-scrollbar {
          display: none;
       }
+
       .item {
          display: flex;
          justify-content: space-between;
@@ -275,7 +324,6 @@ $oranBlack: #ed6480;
          width: 100%;
          max-width: 600px;
 
-         border:1px solid #1288e8;
          &__left {
             @include SemiboldFont($colorTwo);
             font-size: 14px;
@@ -288,18 +336,22 @@ $oranBlack: #ed6480;
             justify-content: space-between;
             align-items: center;
          }
-         &__box{
+
+         &__box {
             display: flex;
          }
+
          &__text-box {
             display: flex;
             flex-direction: column;
             align-items: start;
             gap: 5px;
+
             h5 {
                @include SemiboldFont($white);
                font-size: 12px;
             }
+
             p {
                @include LightFont($white);
                font-size: 12px;
@@ -326,31 +378,36 @@ $oranBlack: #ed6480;
    transform: translateX(-50%);
    bottom: 0;
    height: 88px;
+
    span {
       color: $white;
       rotate: 90deg;
    }
+
    transition: all 0.4s ease;
 }
+
 .hover::after {
    width: 100% !important;
 }
-@media (max-width: 980px) {
-   .wallets__down-box {
-      justify-content: center;
-      flex-wrap: wrap;
-   }
-}
 
-@media (max-width: 750px) {
-   .wallets__top-box {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-content: center;
-   }
-}
+// @media (max-width: 980px) {
+//    .wallets__down-box {
+//       justify-content: center;
+//       flex-wrap: wrap;
+//    }
+// }
+
+// @media (max-width: 750px) {
+//    .wallets__top-box {
+//       display: grid;
+//       grid-template-columns: 1fr;
+//       justify-content: center;
+//    }
+// }
+
 // @media (max-width: 400px) {
 //    .wallets__chard {
 //       padding: 12px;
 //    }
-// }
+// }  
